@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Test Page</title>
+    <script src="https://unpkg.com/@loomhq/loom-sdk@2.27.0"></script>
+    <script>
+      window.loomJws = "<%= jws %>";
+    </script>
+  </head>
+  <body>
+    <button id="record-button">Record</button>
+  </body>
+  <script>
+    window.global = window;
+    async function setup() {
+      const { supported } = await loomSdk.isSupported();
+
+      if (!supported) {
+        console.log("Loom is not supported");
+      }
+
+      const { configureButton } = await loomSdk.setup({
+        jws: window.loomJws,
+      });
+
+      configureButton({
+        element: document.querySelector("#record-button")
+      });
+    }
+
+    setup();
+  </script>
+</html>

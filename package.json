@@ -1,0 +1,19 @@
+{
+  "name": "loom-sdk-backend-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon -w src src/server/index.js"
+  },
+  "dependencies": {
+    "ejs": "3.1.6",
+    "express": "4.17.2",
+    "jose": "4.3.7"
+  },
+  "devDependencies": {
+    "nodemon": "1.18.4"
+  },
+  "keywords": []
+}
